@@ -1,8 +1,9 @@
 from uuid import uuid4
 
 from storage.redis_db import RedisDataBase
+from storage.db import get_database_interface
 from entity import SecretsRequest, GenerateRequest, SecretResponse
-from utils import encrypt_string, generate_key, decrypt_string, save_key
+from utils import encrypt_string, generate_key, decrypt_string
 
 from uvicorn import run
 from cryptography.fernet import InvalidToken
@@ -10,7 +11,7 @@ from fastapi import FastAPI, HTTPException
 
 
 app = FastAPI()
-storage = RedisDataBase()
+storage = get_database_interface(RedisDataBase, "redis://localhost")
 
 
 @app.post("/generate", response_model=dict)

@@ -1,5 +1,3 @@
-# сюда пока не смотреть
-
 from typing import runtime_checkable, Protocol
 
 
@@ -10,3 +8,7 @@ class DataBaseInterface(Protocol):
 
     async def set_data_by_key(self, key_id, data) -> None:
         ...
+
+
+def get_database_interface(db: DataBaseInterface, url: str) -> DataBaseInterface:
+    return db(url)

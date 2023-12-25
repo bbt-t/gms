@@ -2,8 +2,8 @@ from redis import from_url as redis_from_url
 
 
 class RedisDataBase:
-    def __init__(self):
-        self.db = redis_from_url("redis://localhost")
+    def __init__(self, redis_url: str):
+        self.db = redis_from_url(redis_url)
 
     async def close_redis_connection(self) -> None:
         self.db.close()

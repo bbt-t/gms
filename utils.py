@@ -1,11 +1,7 @@
 from base64 import urlsafe_b64encode
 from hashlib import sha256
-from uuid import uuid4
 
 from cryptography.fernet import Fernet
-
-from entity import GenerateRequest
-from storage.db import DataBaseInterface
 
 
 def generate_key(input_string) -> bytes:
