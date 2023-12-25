@@ -17,4 +17,3 @@ class MongoDB:
     async def set_data_by_key(self, collection_name: str, key_id, data) -> None:
         collection = self.db[collection_name]
         await collection.replace_one({"_id": key_id}, data, upsert=True)
-
