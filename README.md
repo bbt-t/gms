@@ -32,3 +32,8 @@
 <li>Добавлена возможность задавать время жизни для секретов. Можно попробовать реализовать это с помощью TTL индексов. :heavy_check_mark: </li>
 </ul>
 </details>
+
+### start
+docker -> `docker-compose up`
+
+без docker'a (нужен запущенный Redis) -> `python main.py`
