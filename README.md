@@ -37,3 +37,5 @@
 docker -> `docker-compose up`
 
 без docker'a (нужен запущенный Redis) -> `python main.py`
+
+`ДОКА (swagger)` -> http://localhost:8000/docs

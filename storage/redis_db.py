@@ -2,6 +2,10 @@ from redis import from_url as redis_from_url
 
 
 class RedisDataBase:
+    """
+    Redis database interface
+    """
+
     def __init__(self, redis_url: str):
         self.db = redis_from_url(redis_url)
 

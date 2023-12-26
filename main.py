@@ -16,6 +16,11 @@ storage = get_database_interface(RedisDataBase, "redis://localhost")
 
 @app.post("/generate", response_model=dict)
 async def generate_key_secret(request: GenerateRequest):
+    """
+    Generates a new secret.
+    :param request: json
+    :return: secret_key
+    """
     key_id = str(uuid4())
     await storage.set_data_by_key(
         key_id,
@@ -27,6 +32,11 @@ async def generate_key_secret(request: GenerateRequest):
 
 @app.post("/secrets", response_model=SecretResponse)
 async def get_secret(request: SecretsRequest):
+    """
+    Gets a secret.
+    :param request: json
+    :return: data
+    """
     if data := await storage.get_data_by_key(key_id=request.secret_key) is None:
         raise HTTPException(status_code=404, detail="NOT FOUND")
 

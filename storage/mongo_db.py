@@ -2,6 +2,10 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 
 class MongoDB:
+    """
+    Mongo database interface.
+    """
+
     def __init__(self, db_url: str):
         self.client = AsyncIOMotorClient(db_url)
         self.db = self.client.get_database()
